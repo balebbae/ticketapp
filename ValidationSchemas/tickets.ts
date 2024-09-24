@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const ticketSchema = z.object({
-  titile: z
+  title: z
     .string()
     .min(1, "Title is required")
     .max(255),
