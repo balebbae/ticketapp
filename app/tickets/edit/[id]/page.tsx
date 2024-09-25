@@ -19,7 +19,7 @@ const EditTicket = async ({ params }: Props) => {
     return <p className="test-destructive">Ticket not found!</p>;
   }
 
-  return <TicketForm ticket={ticket}></TicketForm>;
+  return <TicketForm ticket={ticket} />;
 };
 
 export default EditTicket;
