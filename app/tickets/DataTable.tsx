@@ -20,7 +20,7 @@ const DataTable = ({ tickets }: Props) => {
 
   return (
     <div className="w-full mt-5">
-      <div className="rounded-md sm:border">
+      <div className="rounded-md ">
         <Table>
           <TableHeader>
             <TableRow>
