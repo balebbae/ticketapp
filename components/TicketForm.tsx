@@ -58,92 +58,99 @@ const TicketForm = ({ ticket }: Props) => {
   }
 
   return (
-    <div className="w-full p-8">
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-5 w-full"
-        >
-          <FormField
-            control={form.control}
-            name="title"
-            defaultValue={ticket?.title}
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Ticket Title</FormLabel>
-                <FormControl>
-                  <Input placeholder="Ticket Title..." {...field} />
-                </FormControl>
-              </FormItem>
-            )}
-          />
-          <Controller
-            name="description"
-            defaultValue={ticket?.description}
-            control={form.control}
-            render={({ field }) => (
-              <SimpleMDE placeholder="Description" {...field} />
-            )}
-          />
-          <div className="flex w-full space-x-4" style={{ marginTop: "-1rem" }}>
+    <>
+      <div className="w-full p-8">
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="space-y-5 w-full"
+          >
             <FormField
               control={form.control}
-              name="status"
-              defaultValue={ticket?.status}
+              name="title"
+              defaultValue={ticket?.title}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Status</FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Status..." />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="OPEN">Open</SelectItem>
-                      <SelectItem value="STARTED">Started</SelectItem>
-                      <SelectItem value="CLOSED">Closed</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <FormLabel>Ticket Title</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Ticket Title..." {...field} />
+                  </FormControl>
                 </FormItem>
               )}
             />
+            <Controller
+              name="description"
+              defaultValue={ticket?.description}
+              control={form.control}
+              render={({ field }) => (
+                <SimpleMDE placeholder="Description" {...field} />
+              )}
+            />
+            <div
+              className="flex w-full space-x-4"
+              style={{ marginTop: "-1rem" }}
+            >
+              <FormField
+                control={form.control}
+                name="status"
+                defaultValue={ticket?.status}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Status</FormLabel>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Status..." />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="OPEN">Open</SelectItem>
+                        <SelectItem value="STARTED">Started</SelectItem>
+                        <SelectItem value="CLOSED">Closed</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </FormItem>
+                )}
+              />
 
-            <FormField
-              control={form.control}
-              name="priority"
-              defaultValue={ticket?.priority}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Priority</FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Priority..." />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="LOW">Low</SelectItem>
-                      <SelectItem value="MEDIUM">Medium</SelectItem>
-                      <SelectItem value="HIGH">High</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </FormItem>
-              )}
-            />
-          </div>
-          <Button type="submit" disabled={isSubmitting}>
-            {ticket ? "Update Ticket" : "Create Ticket"}
-          </Button>
-        </form>
-      </Form>
-    </div>
+              <FormField
+                control={form.control}
+                name="priority"
+                defaultValue={ticket?.priority}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Priority</FormLabel>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Priority..." />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="LOW">Low</SelectItem>
+                        <SelectItem value="MEDIUM">Medium</SelectItem>
+                        <SelectItem value="HIGH">High</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </FormItem>
+                )}
+              />
+            </div>
+            <Button type="submit" disabled={isSubmitting}>
+              {ticket ? "Update Ticket" : "Create Ticket"}
+            </Button>
+          </form>
+        </Form>
+      </div>
+
+      <p className="text-destructive">{error}</p>
+    </>
   );
 };
 
