@@ -28,7 +28,7 @@ const Pagination = ({ itemCount, pageSize, currentPage }: Props) => {
     router.push("?" + params.toString());
   };
   return (
-    <div mt-4>
+    <div className="mt-4">
       <div>
         <Button
           variant="outline"

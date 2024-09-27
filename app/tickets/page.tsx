@@ -13,7 +13,7 @@ export interface SearchParams {
   orderBy: keyof Ticket;
 }
 
-const Tickets = async ({ searchParams }: { SearchParams: SearchParams }) => {
+const Tickets = async ({ searchParams }: { searchParams: SearchParams }) => {
   const pageSize = 10;
   const page = parseInt(searchParams.page) || 1;
 
